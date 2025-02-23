@@ -16,7 +16,14 @@ The dashboard includes the following visualizations:
 
 - **Matrix Table**: Detailed employee records including job satisfaction levels.  
 
-- **Slicer**: Filters based on department, job role, and gender.  
+- **Slicer**: Filters based on department, job role, and gender.
+
+- ## How to Use This Dashboard
+Download the .pbix file and open it in Power BI Desktop.
+
+Connect to your HR dataset (if external).
+
+Interact with the dashboard using slicers and filters for deeper insights.
 
 
 
