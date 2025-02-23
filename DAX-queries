@@ -1,0 +1,64 @@
+# HR Dashboard for Employee Analysis - Power BI   
+
+## DAX Queries Applied  
+
+### **1. Total Employee Count**  
+```DAX
+Total emp = COUNTROWS('HR Analytics Data')
+
+
+2. Total Retrenched Employees
+retrenched = IF(ISBLANK(CALCULATE([Total emp], 'HR Analytics Data'[Retrenchment Status] = "Will be retrenched")), 0, CALCULATE([Total emp], 'HR Analytics Data'[Retrenchment Status] = "Will be retrenched"))
+
+3.Employees Currently On Service
+On service = IF(ISBLANK(CALCULATE([Total emp], 'HR Analytics Data'[Retrenchment Status] = "on service")), 0, CALCULATE([Total emp], 'HR Analytics Data'[Retrenchment Status] = "on service"))
+
+4. Employees Not Due for Promotion
+not due = CALCULATE([Total emp], 'HR Analytics Data'[Promotion Status] = "not due")
+
+5. Total Male Employees
+male = IF(ISBLANK(CALCULATE([Total emp],'HR Analytics Data'[Gender] = "male")),0,CALCULATE([Total emp],'HR Analytics Data'[Gender] = "male"))
+
+
+6. Employees with Low Performance Rating
+low rate = CALCULATE([Total emp], 'HR Analytics Data'[Performance Rating] = "Low Rating")
+
+
+7. Employees with High Performance Rating
+high rate = CALCULATE([Total emp], 'HR Analytics Data'[Performance Rating] = "High rating")
+
+8. Total Female Employees
+female = IF(ISBLANK(CALCULATE([Total emp], 'HR Analytics Data'[Gender] = "female")),0,CALCULATE([Total emp], 'HR Analytics Data'[Gender] = "female"))
+
+
+9. Employees Due for Promotion
+due for promotion = IF(ISBLANK(CALCULATE([Total emp], 'HR Analytics Data'[Promotion Status] = "due for promotion")),0,CALCULATE([Total emp], 'HR Analytics Data'[Promotion Status] = "due for promotion"))
+
+
+10. Percentage of Employees On Service
+% service = DIVIDE([On service], [Total emp], 0)
+
+
+11. Percentage of Employees Due for Promotion
+% due = DIVIDE([due for promotion], [Total emp],0)
+
+12. Percentage of Female Employees
+% female = DIVIDE([female], [Total emp], 0)
+
+
+13. Percentage of High-Performance Employees
+% high rate = DIVIDE([high rate], [Total emp],0)
+
+14. Percentage of Low-Performance Employees
+% low rate = DIVIDE([low rate], [Total emp],0)
+
+
+15. Percentage of Male Employees
+% male = DIVIDE([male], [Total emp], 0)
+
+16. Percentage of Employees Not Due for Promotion
+% not due = DIVIDE([not due], [Total emp],0)
+
+
+17. Percentage of Retrenched Employees
+% retrenched = DIVIDE([retrenched], [Total emp],0)
